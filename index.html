@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Schulplanner</title>
+
+        <!-- Bootstrap -->
+        <link href="css/lib/bootstrap.min.css" rel="stylesheet">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css" rel="stylesheet">
+
+        <link href="snackbar/snackbar.min.css" rel="stylesheet">
+        <link href="snackbar/material.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link href="css/lib/bootstrap-material-datetimepicker.css" rel="stylesheet">
+
+        <link href="css/palette.css" rel="stylesheet">
+
+        <link href="css/styles.css" rel="stylesheet">
+    <body>
+        <div class="modal fade" id="modalAddKlassenarbeit">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Klassenarbeit hinzufügen</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-group form-control" id="inputKaFach" placeholder="Fach">
+                        <input type="date" class="form-group form-control" id="inputKaDatum">
+                        <textarea rows="8" class="form-group form-control" id="textAreaKaThema" placeholder="Aufgabe"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                        <button type="button" class="btn btn-material-blue" data-dismiss="modal" id="btnKaAdd">Hinzufügen</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade" id="modalAddHausaufgaben">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Hausaufgabe hinzufügen</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-group form-control" id="inputHaFach" placeholder="Fach">
+                        <input type="text" class="form-group form-control floating-label" placeholder="Date" id="inputHaDatum">
+                        <textarea rows="8" class="form-group form-control" id="textAreaHaAufgabe" placeholder="Aufgabe"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                        <button type="button" class="btn btn-material-blue" data-dismiss="modal" id="btnHaAdd">Hinzufügen</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="navbar navbar-material-blue">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#home" data-toggle="tab">Schulplanner</a>
+            </div>
+            <div class="navbar-collapse collapse navbar-inverse-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#hausaufgaben" data-toggle="tab">Hausaufgaben</a></li>
+                    <li><a href="#stundenplan" data-toggle="tab">Stundenplan</a></li>
+                    <li><a href="#klassenarbeiten" data-toggle="tab">Klassenarbeiten</a></li>
+                    <li><a href="#noten" data-toggle="tab">Noten</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-content tabs" id="tabs">
+            <div id="home" class="tab-pane fade in active">
+                <div class="container">
+                    <h1>Agenda</h1>
+                    <div class="jumbotron">
+                        <h2>nkscnks</h2>
+                    </div>
+                </div>
+            </div>
+            <div id="hausaufgaben" class="page tab-pane fade">
+                <div class="container">
+                    <h1>Hausaufgaben</h1>
+                    <div id="divHaHolder"></div>
+                </div>
+                <a href="#" id="fabHa" class="btn btn-material-deep-orange btn-fab btn-raised mdi-content-add fab"></a>
+            </div>
+            <div id="stundenplan" class="page tab-pane fade">
+                <div class="container">
+                    <h1>Stundenplan</h1>
+                    <div class="table-responsive">
+                        <table class="table table-striped" id="tableSp">
+                            <tr>
+                                <th></th>
+                                <th>
+                                    Montag
+                                </th>
+                                <th>
+                                    Dienstag
+                                </th>
+                                <th>
+                                    Mittwoch
+                                </th>
+                                <th>
+                                    Donnerstag
+                                </th>
+                                <th>
+                                    Freitag
+                                </th>
+                                <th>
+                                    Samstag
+                                </th>
+                                <th>
+                                    Sonntag
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="klassenarbeiten" class="page tab-pane fade">
+                <div class="container">
+                    <h1>Klassenarbeiten</h1>
+                    <div id="divKaHolder"></div>
+                </div>
+                <a href="#" id="fabKa" class="btn btn-material-deep-orange btn-fab btn-raised mdi-content-add fab"></a>
+            </div>
+            <div id="noten" class="page tab-pane fade">
+                <div class="container">
+                    <h1>Noten</h1>
+                </div>
+                <a href="#" id="fabNoten" class="btn btn-material-deep-orange btn-fab btn-raised mdi-content-add fab"></a>
+            </div>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/lib/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
+        <script src="snackbar/snackbar.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+        <script src="js/lib/bootstrap-material-datetimepicker.js"></script>
+        <script src="js/agenda.js"></script>
+        <script src="js/hausaufgaben.js"></script>
+        <script src="js/stundenplan.js"></script>
+        <script src="js/klassenarbeiten.js"></script>
+        <script src="js/noten.js"></script>
+    </body>
+</html>
