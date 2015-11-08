@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<Homeworks length="4">
+  <homework>
+    <Subject>Fr&#xFC;h</Subject>
+    <Date>Sun Nov 08 2015 01:00:00 GMT 0100 (CET)</Date>
+    <Task>sd</Task>
+  </homework>
+  <homework>
+    <Subject>Sp&#xE4;t</Subject>
+    <Date>Tue Nov 10 2015 01:00:00 GMT 0100 (CET)</Date>
+    <Task>sd</Task>
+  </homework>
+  <homework>
+    <Subject>Mitte</Subject>
+    <Date>Mon Nov 09 2015 01:00:00 GMT 0100 (CET)</Date>
+    <Task>sd</Task>
+  </homework>
+  <homework>
+    <Subject>Test</Subject>
+    <Date>Thu Nov 12 2015 01:00:00 GMT 0100 (CET)</Date>
+    <Task>sdsds</Task>
+  </homework>
+</Homeworks>
